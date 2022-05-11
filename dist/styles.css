@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+    width: 40vw;
+    margin-left: 30vw;
+}
+
+.logo {
+    font-size: 3rem;
+}
+
+.pizza-img {
+    width: 40vw;
+}
+
+.center {
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+}
