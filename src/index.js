@@ -1,9 +1,12 @@
-import Pizza from "../src/images/pizza.jpeg"
+import Pizza from "../src/images/pizza.jpeg";
+import Menu from "./menu";
+import Contact from "./contact";
 
 console.log("started")
 
 function component() {
-    const element = document.querySelector("body > div");
+    const element = document.createElement("div");
+    element.classList = "content";
 
     // Logo
     const logo = document.createElement("h1");
@@ -19,21 +22,36 @@ function component() {
     // Home button
     const navbarItem1 = document.createElement("h3");
     navbarItem1.innerText = "Home";
+    navbarItem1.classList = "navitem";
+    navbarItem1.addEventListener("click", () => {
+        document.body.innerHTML = "";
+        document.body.appendChild(component());
+    });
     navbar.appendChild(navbarItem1);
 
     // Menu button
     const navbarItem2 = document.createElement("h3");
     navbarItem2.innerText = "Menu";
+    navbarItem2.classList = "navitem";
+    navbarItem2.addEventListener("click", () => {
+        document.body.innerHTML = "";
+        Menu();
+    });
     navbar.appendChild(navbarItem2);
 
     // Contact button
     const navbarItem3 = document.createElement("h3");
     navbarItem3.innerText = "Contact";
+    navbarItem3.classList = "navitem";
+    navbarItem3.addEventListener("click", () => {
+        document.body.innerHTML = "";
+        Contact();
+    });
     navbar.appendChild(navbarItem3);
 
     // Description
     const description = document.createElement("h3");
-    description.innerText = "We sell pizza";
+    description.innerText = "We sell pizzas";
     element.appendChild(description);
 
     // Pizza description
@@ -44,7 +62,7 @@ function component() {
     // Pizza image
     const pizzaImg = new Image();
     pizzaImg.src = Pizza;
-    pizzaImg.classList = "pizza-img";
+    pizzaImg.classList = "img";
     element.appendChild(pizzaImg);
 
     // You want it?
@@ -62,4 +80,9 @@ function component() {
     return element
 }
 
-document.body.appendChild(component());
+const addComponent = () => {
+    document.body.appendChild(component());
+}
+addComponent();
+
+export default addComponent;
